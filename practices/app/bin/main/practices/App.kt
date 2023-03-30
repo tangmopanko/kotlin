@@ -3,9 +3,15 @@
  */
 package practices
 
+// top+Level 
+var topLevelVar: Int = 0
+
 class App {
     val greeting: String
         get() {
+            // top+Level ++
+            topLevelVar++
+
             return "Hello World!"   
         }
 
@@ -22,11 +28,11 @@ class App {
 
 }
 
+// Pure Java 15 -> record, ex) public record Junk() {}
 data class Junk(
     val name: String,
     val time: Long
 )
-
 
 // Singletone
 object GlobalVariable {
@@ -40,6 +46,12 @@ fun String.checkEmail(): Boolean {
     return email_regex.toRegex().matches(this)
 }
 
+// ext 
+fun String.appendSubfix(subfix: String): String {
+    // 문자열 템플릿 
+    return "${this} ${subfix}"
+}
+
 fun main() {
     println(App().greeting)
     
@@ -48,7 +60,10 @@ fun main() {
     println(junk.toString())
     println(junk.name.toString())
 
+    // Singletone
     println(GlobalVariable.hour)
+    
+    // Static 
     App.increment()
     App.increment()
     
@@ -60,8 +75,54 @@ fun main() {
     println("ODD or EVEN : " + result)
     println(" \n ")
     
+    // ext 
     println("hyeongmeme@naver.com".checkEmail())
     println("danaka-ojisang.com".checkEmail())
+    println("danaka".appendSubfix(",Sir"))
+
+    // Null Point Exception 
+    var name: String? = null
+    // compile error :  Only safe (?.) or non-null asserted (!!.) calls are allowed on a nullable receiver of type String?
+    // name.length 
+
+    // safe-call : null 일수도있음, null인경우 length 실행 안함 (정상처리)
+    name?.length
+
+    // Null이 확실히 아니다 : Exception in thread "main" java.lang.NullPointerException
+    // name!!.length
 
 
+    // val(value) , var(variable)
+
+    println(" topLevel ... : "+ topLevelVar)
+    
+    println(" \n ")
+
+    whatIs(sound = "mongmong.")
+    whatIs("cat", "meow~")
+
+    println(" \n ")
+
+    val scheduleOH = when (6) {
+        6 -> "sleeping"
+        7 -> "sleeping"
+        else -> "sad.."
+    }
+    
+    println(scheduleOH)
+
+     val scheduleOHEnumType = when (ENUM_DAY.FIR) {
+        ENUM_DAY.SAT, ENUM_DAY.SUN -> "sleeping"
+        else -> "sad.."
+    }
+    
+    println(scheduleOHEnumType)
+}
+
+enum class ENUM_DAY {
+    MON, TUE, WED, THU, FIR, SAT, SUN
+}
+
+fun whatIs(animal: String = "dog", sound: String) {
+    println("$animal: $sound")
 }
