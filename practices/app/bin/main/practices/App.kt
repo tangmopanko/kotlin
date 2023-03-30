@@ -34,11 +34,10 @@ object GlobalVariable {
 }
 
 // ext
-fun String.checkId(): Boolean {
-    val regexPattern = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
-    
-
-    return true 
+fun String.checkEmail(): Boolean {
+    val email_regex = "^[A-Za-z](.*)([@]{1})(.{1,})(\\.)(.{1,})";
+    println(this)
+    return email_regex.toRegex().matches(this)
 }
 
 fun main() {
@@ -59,8 +58,10 @@ fun main() {
     // 삼항연산자 if else 
     val result: String = if (num%2 == 0) "odd" else "even"
     println("ODD or EVEN : " + result)
-
-    println("aBcDef".checkId())
+    println(" \n ")
+    
+    println("hyeongmeme@naver.com".checkEmail())
+    println("danaka-ojisang.com".checkEmail())
 
 
 }

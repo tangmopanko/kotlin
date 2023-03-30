@@ -28,6 +28,10 @@ dependencies {
 
     // This dependency is used by the application.
     implementation("com.google.guava:guava:31.1-jre")
+
+    // https://kotlinlang.org/api/latest/jvm/stdlib/
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.8.10")
+
 }
 
 application {
