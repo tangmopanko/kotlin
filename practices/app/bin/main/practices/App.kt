@@ -80,7 +80,7 @@ fun main() {
     println("danaka-ojisang.com".checkEmail())
     println("danaka".appendSubfix(",Sir"))
 
-    // Null Point Exception 
+    // NPE: Null Point Exception 
     var name: String? = null
     // compile error :  Only safe (?.) or non-null asserted (!!.) calls are allowed on a nullable receiver of type String?
     // name.length 
@@ -111,12 +111,39 @@ fun main() {
     
     println(scheduleOH)
 
-     val scheduleOHEnumType = when (ENUM_DAY.FIR) {
+    val scheduleOHEnumType = when (ENUM_DAY.FIR) {
         ENUM_DAY.SAT, ENUM_DAY.SUN -> "sleeping"
         else -> "sad.."
     }
     
     println(scheduleOHEnumType)
+
+    val numbers = arrayOf(0,1,2,3)
+    for(i in numbers){
+        print(i)
+    }
+    println(" ")
+    for(i in 0 until 3){
+        print(i)
+    }
+    println(" ")
+    for(i in 0 until 6 step 2){
+        print(i)
+    }
+    println(" ")
+    for(i in 6 downTo 0){
+        print(i)
+    }
+
+    println("\n ===== while test =====")
+    var incrementData: Int = 0 
+    while(true) {
+        print(incrementData)
+        if (incrementData == 5) break; 
+        incrementData++
+    }
+
+
 }
 
 enum class ENUM_DAY {
