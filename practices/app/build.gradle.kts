@@ -36,7 +36,7 @@ dependencies {
 
 application {
     // Define the main class for the application.
-    mainClass.set("practices.AppKt")
+    mainClass.set("practices.App1Kt")
 }
 
 tasks.named<Test>("test") {
