@@ -31,12 +31,12 @@ dependencies {
 
     // https://kotlinlang.org/api/latest/jvm/stdlib/
     implementation("org.jetbrains.kotlin:kotlin-stdlib:1.8.10")
-
+    implementation("org.jetbrains.kotlin:kotlin-reflect:1.8.10")
 }
 
 application {
     // Define the main class for the application.
-    mainClass.set("practices.App2Kt")
+    mainClass.set("practices.App3Kt")
 }
 
 tasks.named<Test>("test") {

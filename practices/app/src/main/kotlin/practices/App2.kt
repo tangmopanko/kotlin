@@ -13,7 +13,7 @@ fun main() {
 /**
 주문 -> 주문확인 -> 준비중 -> 준비완료 -> 픽업완료
  */ 
-enum class PickupStatus(val label: String): Cancle, Alarm {
+enum class PickupStatus(val label: String): Cancle{
     ORDER("주문") {
         override fun isCancle() = true
     },
@@ -36,12 +36,4 @@ enum class PickupStatus(val label: String): Cancle, Alarm {
 
 interface Cancle {
     fun isCancle(): Boolean
-}
-
-interface Alarm {
-    fun sendMessage(msg: String): Boolean {
-        println("PICK_STATUS : CURRENT[${msg}]")
-        
-        return true 
-    } 
 }
