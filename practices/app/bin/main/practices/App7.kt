@@ -83,6 +83,11 @@ fun main() {
         it.valid()
     }
 
+    val hello = "hello"
+    hello.let {
+        x: String -> println(x.uppercase())
+    }
+
 }
 
 // infix 중간 표기법 함수
